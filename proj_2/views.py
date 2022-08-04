@@ -1,7 +1,9 @@
+from unittest import result
 from django.http import HttpResponse
+from django.shortcuts import render
 
 def hello(request):
-    return HttpResponse('Olá mundo!')
+    return render(request, 'index.html')
 
 def article(request, year):
     soma10 = year + 10
@@ -20,9 +22,16 @@ def ler_banco(nome):
         else:
             return {'nome': 'Pessoa não encontrada', 'idade': 0}
 
-def fname(request, nome):
+#def fname(request, nome):
+#    result = ler_banco(nome)
+#    if result['idade'] > 0:
+#        return HttpResponse('A pessoa foi encontrada, ela tem ' + str(result['idade']) + ' anos')
+#    else:
+#        return HttpResponse('Pessoa não encontrada')
+
+def fname(request,nome):
     result = ler_banco(nome)
     if result['idade'] > 0:
-        return HttpResponse('A pessoa foi encontrada, ela tem ' + str(result['idade']) + ' anos')
+        return render(request, 'pessoa.html')
     else:
-        return HttpResponse('Pessoa não encontrada')
+        return render(request, 'pessoa.html')
