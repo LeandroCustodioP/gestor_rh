@@ -122,6 +122,11 @@ STATICFILES_DIRS = [
     'estaticos',
 ]
 
+# Media files (photos, videos, etc)
+MEDIA_URL = '/media/'
+
+MEDIA_ROOT = 'media'
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
